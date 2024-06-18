@@ -4,7 +4,7 @@ agent any
     environment{
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
         GITHUB_CREDENTIALS = credentials('cdcadc76-34bc-437e-a2c6-0f3928db1f66')
-        GITHUB_REPO = 'hnnrobipozar/react-app'
+        GITHUB_REPO = 'hnnrobipozar/react-webapp'
         NEXT_VERSION = nextVersion()
     }
 
@@ -17,7 +17,7 @@ agent any
         stage('Pull'){
             steps{
                 echo "Pulling repo stage"
-                git branch: 'main', url: 'https://github.com/hnnrobipozar/react-app'
+                git branch: 'main', url: 'https://github.com/hnnrobipozar/react-webapp'
      
             }
         }
