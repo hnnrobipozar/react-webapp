@@ -1,4 +1,4 @@
-FROM node as react-hot-cold
+FROM node as react-webapp
 
 ARG TOKEN
 
@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get upgrade -y 
 RUN apt-get install -y git
 
-WORKDIR /react-hot-cold
+WORKDIR /react-webapp
 
 COPY . .
 
