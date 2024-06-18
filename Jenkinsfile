@@ -2,8 +2,8 @@ pipeline {
 agent any
 
     environment{
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        GITHUB_CREDENTIALS = credentials('cdcadc76-34bc-437e-a2c6-0f3928db1f66')
+        DOCKERHUB_CREDENTIALS = credentials('dockerhubA')
+        GITHUB_CREDENTIALS = credentials('GitHubA')
         GITHUB_REPO = 'hnnrobipozar/react-webapp'
         NEXT_VERSION = nextVersion()
     }
@@ -67,8 +67,8 @@ agent any
 
                 echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
               
-                docker tag react-webapp-deploy:latest hnnrobipozar/react-app:error
-                docker push hnnrobipozar/react-app:error
+                docker tag react-webapp-deploy:latest hnnrobipozar/react-app:${NEXT_VERSION}
+                docker push hnnrobipozar/react-app:${NEXT_VERSION}
                 docker logout
 
                 echo
@@ -78,7 +78,7 @@ agent any
         }
 
     }
-                post{
+            post{
             always{
             echo "Archiving artifacts"
 
