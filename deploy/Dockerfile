@@ -5,4 +5,4 @@ WORKDIR /app
 COPY ./artefakty .
 
 RUN npm install -g serve
-CMD serve -s build
+CMD serve -s build real to stara k
