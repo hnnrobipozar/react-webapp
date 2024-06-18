@@ -26,9 +26,9 @@ agent any
             steps {
                 echo "Build stage"
                 sh '''
-                docker build -t react-app:latest  -f./building/Dockerfile .
-                docker run --name build_container react-app:latest
-                docker cp build_container:/react-app/build ./artefakty
+                docker build -t react-webapp:latest  -f./building/Dockerfile .
+                docker run --name build_container react-webapp:latest
+                docker cp build_container:/react-webapp/build ./artefakty
                 docker logs build_container > log_build.txt
                 '''
             }
@@ -38,8 +38,8 @@ agent any
             steps {
                 echo "Test stage"
                 sh '''
-                docker build -t react-app-test:latest -f ./test/Dockerfile .
-                docker run --name test_container react-app-test:latest
+                docker build -t react-webapp-test:latest -f ./test/Dockerfile .
+                docker run --name test_container react-webapp-test:latest
                 docker logs test_container > log_test.txt
 
                 '''
@@ -50,8 +50,8 @@ agent any
                 echo "Deploy stage"
                 sh '''
                 
-                docker build -t react-app-deploy:latest -f ./deploy/Dockerfile .
-                docker run -p 3000:3000 -d --rm --name deploy_container react-app-deploy:latest
+                docker build -t react-webapp-deploy:latest -f ./deploy/Dockerfile .
+                docker run -p 3000:3000 -d --rm --name deploy_container react-webapp-deploy:latest
                 
                 '''
         }
