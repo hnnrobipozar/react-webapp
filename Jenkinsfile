@@ -67,7 +67,7 @@ agent any
 
                 echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
               
-                docker tag react-app-deploy:latest hnnrobipozar/react-app:${NEXT_VERSION}
+                docker tag react-webapp-deploy:latest hnnrobipozar/react-app:${NEXT_VERSION}
                 docker push hnnrobipozar/react-app:${NEXT_VERSION}
                 docker logout
 
