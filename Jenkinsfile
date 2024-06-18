@@ -8,9 +8,6 @@ agent any
         NEXT_VERSION = nextVersion()
     }
 
-    triggers {
-        pollSCM('* * * * *')
-    }
 
     stages {
         
