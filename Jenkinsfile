@@ -17,7 +17,7 @@ agent any
         stage('Pull'){
             steps{
                 echo "Pulling repo stage"
-                git branch: 'main', url: 'https://github.com/hnrobipozar/react-app'
+                git branch: 'main', url: 'https://github.com/hnnrobipozar/react-app'
      
             }
         }
