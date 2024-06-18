@@ -63,7 +63,7 @@ agent any
                 git config --global user.email "adamhyzy2001@wp.pl"
                 git config --global user.name "hnnrobipozar"
                 git tag -a ${NEXT_VERSION} -m "tag"
-                git push https://${GITHUB_CREDENTIALS_PSW}@github.com/${GITHUB_REPO} ${NEXT_VERSION}
+                git push https://${GITHUB_CREDENTIALS_PSW}@github.com/${GITHUB_REPO}:${NEXT_VERSION}
 
                 echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
               
