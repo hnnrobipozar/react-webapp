@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green
+
+spec:
+  replicas: 15
+  selector:
+    matchLabels:
+      app: react
+      replica: green
+  template:
+    metadata:
+      labels:
+        app: react
+        replica: green
+    spec:
+      containers:
+      - name: react
+        image: hnnrobipozar/react-app:1.0.0
+        ports:
+        - containerPort: 3000

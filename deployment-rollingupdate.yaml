@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app-rollingupdate
+  labels:
+    app: react
+spec:
+  replicas: 15
+  strategy:
+    type : RollingUpdate
+  selector:
+    matchLabels:
+      app: react
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      containers:
+      - name: react
+        image: hnnrobipozar/react-app:1.0.0
+        ports:
+        - containerPort: 3000
